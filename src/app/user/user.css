@@ -1,0 +1,128 @@
+/*body {
+  background-image: url('/Bus/bUS2.png');
+  background-size: cover;       
+  background-repeat: no-repeat;  
+  background-position: center;   
+  height: 100vh;                 
+  margin: 0;                    
+}
+.user-container {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  height: 480px;
+  width: 450px;
+  margin-top: 80%;
+}
+
+form label {
+  display: block;
+  margin-top: 10px;
+}
+
+form input {
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+button {
+  margin-top: 15px;
+  padding: 8px 12px;
+  border: none;
+  background-color: #1976d2;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #125ea8;
+}
+.user-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.user-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333333;
+}
+
+.user-container label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 500;
+  color: #555555;
+}
+
+.user-container input[type="text"],
+.user-container input[type="email"],
+.user-container input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.user-container input[type="text"]:focus,
+.user-container input[type="email"]:focus,
+.user-container input[type="password"]:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+.user-container .button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.user-container button {
+  width: 48%;
+  padding: 10px 0;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  color: #ffffff;
+  transition: background-color 0.3s;
+}
+
+.user-container button.register {
+  background-color: #1976d2;
+}
+
+.user-container button.register:hover {
+  background-color: #125ea8;
+}
+
+.user-container button.login {
+  background-color: #4caf50;
+}
+
+.user-container button.login:hover {
+  background-color: #3a8b3a;
+}
+
+.user-container p {
+  margin-top: 15px;
+  text-align: center;
+  color: #d32f2f;
+  font-weight: 500;
+}
+*/

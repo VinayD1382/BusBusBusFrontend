@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg bg-white shadow-sm px-4 py-3">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold text-danger fs-4" href="#">
+      <span class="text-dark">Vraj</span>Bus
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="ms-auto d-flex align-items-center gap-4">
+        <a class="nav-link text-dark fw-semibold" href="#"  routerLink="/">Home</a>
+        <a class="nav-link text-dark fw-semibold" href="#"  routerLink="/blog">Blog</a>
+        <a class="nav-link text-dark fw-semibold" href="#" routerLink="/help">Help center</a>
+        <a class="nav-link text-dark fw-semibold" href="#" routerLink="/login">My bookings</a>
+        <button class="btn btn-danger btn-sm rounded-pill px-3" routerLink="/user" style="margin-left: 0px;">
+          User Account        </button>
+        <button class="btn btn-success btn-sm rounded-pill px-3" routerLink="/adminview">
+          Admin Account
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+<div style="max-width: 600px; margin: auto; margin-top: 30px;">
+  <h2>Search Buses</h2>
+  <div>
+    <input [(ngModel)]="fromLocation" placeholder="From Location" (input)="onFromChange()" />
+    <div *ngIf="fromSuggestions.length > 0" style="border: 1px solid #ccc;">
+      <div *ngFor="let suggestion of fromSuggestions" (click)="selectFrom(suggestion)" style="padding: 5px; cursor: pointer;">
+        {{ suggestion }}
+      </div>
+    </div>
+
+    <input [(ngModel)]="toLocation" placeholder="To Location" (input)="onToChange()" />
+    <div *ngIf="toSuggestions.length > 0" style="border: 1px solid #ccc;">
+      <div *ngFor="let suggestion of toSuggestions" (click)="selectTo(suggestion)" style="padding: 5px; cursor: pointer;">
+        {{ suggestion }}
+      </div>
+    </div>
+
+    <button (click)="searchBuses()">Search</button>
+  </div>
+
+  <div *ngIf="buses.length > 0" style="margin-top: 20px;">
+    <h3>Available Buses:</h3>
+    <div *ngFor="let bus of buses" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+      <p><strong>{{ bus.busName }}</strong></p>
+      <p>From: {{ bus.fromLocation }} | To: {{ bus.toLocation }}</p>
+      <p>Departure Time: {{ bus.departureTime }}</p>
+      <p>Total Seats: {{ bus.totalSeats }}</p>
+<button [routerLink]="['/booking', bus.id]">Book Now</button>
+    </div>
+  </div>
+
+  <div *ngIf="buses.length === 0 && fromLocation && toLocation" style="margin-top: 20px;">
+    <p>No buses found.</p>
+  </div>
+</div>

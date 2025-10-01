@@ -1,0 +1,120 @@
+.hero {
+  background: url('/Bus/bUS2.png') no-repeat center center/cover;
+  min-height: 70vh;
+  color: rgb(250, 247, 247);
+  padding: 100px 20px;
+}
+
+.search-box {
+  max-width: 800px;
+  width: 100%;
+}
+
+.nav-link {
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #dc3545; 
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.btn-danger {
+  background: #dc3545;
+  border: none;
+}
+
+.btn-danger:hover {
+  background: #bb2d3b;
+}
+
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+  background: #1a1919;
+  border: 1px solid #ddd;
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.suggestions li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.suggestions li:hover {
+  background-color: #070707;
+}
+.bus-card {
+  background: #0a0a0a;
+  border: 1px solid #0c0c0c;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bus-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.bus-img {
+  width: 150px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 150px;
+}
+
+.btn-danger {
+  background: #dc3545;
+  border: none;
+  margin-left: 50px;
+}
+
+.btn-danger:hover {
+  background: #bb2d3b;
+}
+section h2, section h3 {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.list-group-item {
+  border: none;
+  border-bottom: 1px solid #eee;
+}
+
+.text-pink {
+  color: #d63384;
+}
+.footer-link {
+  color: #bbb;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 6px;
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: #fff;
+}
+
+.footer-social {
+  font-size: 1.2rem;
+  color: #bbb;
+  transition: color 0.3s;
+}
+
+.footer-social:hover {
+  color: #dc3545; 
+}
+

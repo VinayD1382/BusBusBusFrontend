@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg bg-white shadow-sm px-4 py-3">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold text-danger fs-4" href="#">
+      <span class="text-dark">Vraj</span>Bus
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="ms-auto d-flex align-items-center gap-4">
+        <a class="nav-link text-dark fw-semibold" href="#"  routerLink="/">Home</a>
+        <a class="nav-link text-dark fw-semibold" href="#"  routerLink="/blog">Blog</a>
+        <a class="nav-link text-dark fw-semibold" href="#" routerLink="/help">Help center</a>
+        <a class="nav-link text-dark fw-semibold" href="#" routerLink="/login">My bookings</a>
+        <button class="btn btn-danger btn-sm rounded-pill px-3" routerLink="/user" style="margin-left: 0px;">
+          User Account        </button>
+        <button class="btn btn-success btn-sm rounded-pill px-3" routerLink="/adminview">
+          Admin Account
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="query-section">
+  <h2>User Help Requests</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Subject</th>
+        <th>Message</th>
+        <th>Date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let q of queries">
+        <td>{{ q.name }}</td>
+        <td>{{ q.email }}</td>
+        <td>{{ q.phone }}</td>
+        <td>{{ q.subject }}</td>
+        <td>{{ q.message }}</td>
+        <td>{{ q.createdAt | date:'short' }}</td>
+       <td>
+  <button 
+    class="btn btn-sm btn-primary"
+    (click)="reply(q.email, q.subject)">
+    Reply
+  </button>
+</td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>

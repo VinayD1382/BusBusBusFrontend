@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-lg bg-white shadow-sm px-4 py-3">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold text-danger fs-4" href="#">
+      <span class="text-dark">Vraj</span>Bus
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="ms-auto d-flex align-items-center gap-4">
+        <a class="nav-link text-dark fw-semibold" href="#"  routerLink="/">Home</a>
+        <a class="nav-link text-dark fw-semibold" href="#"  routerLink="/blog">Blog</a>
+        <a class="nav-link text-dark fw-semibold" href="#" routerLink="/help">Help center</a>
+        <a class="nav-link text-dark fw-semibold" href="#" routerLink="/login">My bookings</a>
+        <button class="btn btn-danger btn-sm rounded-pill px-3" routerLink="/user" style="margin-left: 0px;">
+          User Account        </button>
+        <button class="btn btn-success btn-sm rounded-pill px-3" routerLink="/adminview">
+          Admin Account
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+<div *ngIf="user" class="card user-card shadow-lg p-4 rounded-3">
+<h4 class="text-center text-primary mb-3" 
+    style="font-weight: 600; border-bottom: 2px solid #007bff; display: inline-block; padding-bottom: 5px;">
+    👤 User_Details
+</h4>
+  <div class="d-flex align-items-center">
+    <img src="/Bus/MEN3.png" alt="Profile" style="width: 100px; height: 100px;"
+         class="rounded-circle me-3 border border-2 border-primary">
+    <div>
+      <h4><strong>Name:</strong> {{ user.name }}</h4>
+      <h5><strong>Email:</strong> {{ user.email }}</h5>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="bookings.length > 0" class="booking-history mt-4">
+  <h3>Previous Trips</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Customer</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Date</th>
+        <th>Seats</th>
+        <th>Bus</th>
+        <th>Total Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let b of bookings">
+        <td>{{ b.customerName }}</td>
+        <td>{{ b.fromLocation }}</td>
+        <td>{{ b.toLocation }}</td>
+        <td>{{ b.travelDate }}</td>
+        <td>{{ b.seatNumber }}</td>
+        <td>{{ b.busName }}</td>
+        <td>{{ b.totalPrice }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="!user && message">
+  <p>{{ message }}</p>
+</div>
+
+<div *ngIf="user && bookings.length === 0">
+  <p>No bookings found for this user.</p>
+</div>

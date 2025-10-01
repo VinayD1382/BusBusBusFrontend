@@ -1,0 +1,95 @@
+<nav class="navbar navbar-expand-lg bg-white shadow-sm px-4 py-3">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold text-danger fs-4" href="#">
+      <span class="text-dark">Vraj</span>Bus
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="ms-auto d-flex align-items-center gap-4">
+        <a class="nav-link text-dark fw-semibold" href="#"  routerLink="/">Home</a>
+        <a class="nav-link text-dark fw-semibold" href="#"  routerLink="/blog">Blog</a>
+        <a class="nav-link text-dark fw-semibold" href="#" routerLink="/help">Help center</a>
+        <a class="nav-link text-dark fw-semibold" href="#" routerLink="/login">My bookings</a>
+        <button class="btn btn-danger btn-sm rounded-pill px-3" routerLink="/user" style="margin-left: 0px;">
+          User Account        </button>
+        <button class="btn btn-success btn-sm rounded-pill px-3" routerLink="/adminview">
+          Admin Account
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <h1>VrajBus Travel Blog</h1>
+  <p >Explore journeys, destinations, and real travel experiences.</p>
+</header>
+
+<section class="blog">
+  <h2>Travel Experiences with VrajBus</h2>
+  <p>Watch our latest trip videos and discover the beauty of travel with comfort and safety.</p>
+
+  <div class="video-grid">
+    <div *ngFor="let video of videos" class="video-card">
+      <iframe
+        width="420"
+        height="215"
+        [src]="video.url | safeUrl"
+        [title]="video.title"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+      <p>{{ video.title }}</p>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-dark text-light pt-5 pb-3 mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 mb-4">
+        <h4 class="fw-bold text-danger">Vraj<span class="text-light">Bus</span></h4>
+        <p class="small text-muted">
+          India’s trusted online bus booking platform. Travel across 5000+ routes with comfort and safety.
+        </p>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold mb-3">About</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="footer-link">About Us</a></li>
+          <li><a href="#" class="footer-link">Careers</a></li>
+          <li><a href="#" class="footer-link">Blog</a></li>
+          <li><a href="#" class="footer-link">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold mb-3">Info</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="footer-link">Terms & Conditions</a></li>
+          <li><a href="#" class="footer-link">Privacy Policy</a></li>
+          <li><a href="#" class="footer-link">Cancellation & Refund</a></li>
+          <li><a href="#" class="footer-link">Help Center</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold mb-3">Get in Touch</h6>
+        <p class="small"><i class="bi bi-envelope-fill"></i> support@vrajbus.com</p>
+        <p class="small"><i class="bi bi-telephone-fill"></i> +91 88846 81382</p>
+        <div class="d-flex gap-3 mt-2">
+          <a href="#" class="footer-social"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="footer-social"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="footer-social"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="footer-social"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="border-secondary">
+    <div class="text-center">
+      <p class="small mb-0">
+        © 2025 <span class="text-danger">Vraj Bus Service</span>. All Rights Reserved.
+      </p>
+    </div>
+  </div>
+</footer>

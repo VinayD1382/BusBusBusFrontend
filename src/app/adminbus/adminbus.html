@@ -1,0 +1,87 @@
+<nav class="navbar navbar-expand-lg bg-white shadow-sm px-4 py-3">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold text-danger fs-4" href="#">
+      <span class="text-dark">Vraj</span>Bus
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="ms-auto d-flex align-items-center gap-4">
+        <a class="nav-link text-dark fw-semibold" href="#"  routerLink="/">Home</a>
+        <a class="nav-link text-dark fw-semibold" href="#"  routerLink="/blog">Blog</a>
+        <a class="nav-link text-dark fw-semibold" href="#" routerLink="/help">Help center</a>
+        <a class="nav-link text-dark fw-semibold" href="#" routerLink="/login">My bookings</a>
+        <button class="btn btn-danger btn-sm rounded-pill px-3" routerLink="/user" style="margin-left: 0px;">
+          User Account        </button>
+        <button class="btn btn-success btn-sm rounded-pill px-3" routerLink="/adminview">
+          Admin Account
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <h2 class="title">Vraj Buses</h2>
+  <div class="card p-3 mb-3">
+    <h3>Add New Bus</h3>
+    <form (ngSubmit)="addBus()">
+      <input type="text" [(ngModel)]="newBus.busName" name="busName" placeholder="Bus Name" required>
+      <input type="text" [(ngModel)]="newBus.fromLocation" name="fromLocation" placeholder="From Location" required>
+      <input type="text" [(ngModel)]="newBus.toLocation" name="toLocation" placeholder="To Location" required>
+      <input type="number" [(ngModel)]="newBus.totalSeats" name="totalSeats" placeholder="Total Seats" required>
+      <input type="time" [(ngModel)]="newBus.departureTime" name="departureTime" required>
+      <input type="text" [(ngModel)]="newBus.busType" name="busType" placeholder="Bus Type">
+      <input type="number" [(ngModel)]="newBus.ticketPrice" name="ticketPrice" placeholder="Ticket Price">
+      <button type="submit" class="btn btn-primary mt-2">Add Bus</button>
+    </form>
+  </div>
+
+  <h3 class="mt-3">Available Buses</h3>
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Bus Name</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Total Seats</th>
+        <th>Departure</th>
+        <th>Type</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bus of buses">
+        <td>{{ bus.id }}</td>
+        <td>{{ bus.busName }}</td>
+        <td>{{ bus.fromLocation }}</td>
+        <td>{{ bus.toLocation }}</td>
+        <td>{{ bus.totalSeats }}</td>
+        <td>{{ bus.departureTime }}</td>
+        <td>{{ bus.busType }}</td>
+        <td>{{ bus.ticketPrice }}</td>
+        <td>
+          <button class="btn btn-sm btn-warning" (click)="editBus(bus)">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="deleteBus(bus.id!)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="selectedBus" class="modal">
+    <div class="modal-content">
+      <h3>Edit Bus</h3>
+      <input type="text" [(ngModel)]="selectedBus.busName" placeholder="Bus Name">
+      <input type="text" [(ngModel)]="selectedBus.fromLocation" placeholder="From Location">
+      <input type="text" [(ngModel)]="selectedBus.toLocation" placeholder="To Location">
+      <input type="number" [(ngModel)]="selectedBus.totalSeats" placeholder="Total Seats">
+      <input type="time" [(ngModel)]="selectedBus.departureTime">
+      <input type="text" [(ngModel)]="selectedBus.busType" placeholder="Bus Type">
+      <input type="number" [(ngModel)]="selectedBus.ticketPrice" placeholder="Ticket Price">
+      <button (click)="updateBus()" class="btn btn-success mt-2">Update</button>
+      <button (click)="selectedBus = null" class="btn btn-secondary mt-2">Cancel</button>
+    </div>
+  </div>
+</div>

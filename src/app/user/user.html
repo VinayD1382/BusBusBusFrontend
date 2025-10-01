@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Registration</title>
+  <link href="user.css" rel="stylesheet"> 
+  <style>
+    body {
+      background-image: url('/Bus/bus3.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .user-container {
+      max-width: 400px;
+      margin: 80px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      /*background-image: url('/Bus/bus6.png');*/
+    }
+
+    .user-container h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #f9f8f8;
+    }
+
+    .user-container label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 500;
+      color: #f9f8f8;
+    }
+
+    .user-container input[type="text"],
+    .user-container input[type="email"],
+    .user-container input[type="password"] {
+      width: 100%;
+      padding: 10px 12px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 14px;
+      transition: border-color 0.3s;
+    }
+
+    .user-container input:focus {
+      border-color: #1976d2;
+      outline: none;
+    }
+
+    .user-container button {
+      width: 48%;
+      padding: 10px 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      cursor: pointer;
+      color: #ffffff;
+      transition: background-color 0.3s;
+    }
+
+    .user-container button.register {
+      background-color: #1976d2;
+    }
+
+    .user-container button.register:hover {
+      background-color: #125ea8;
+    }
+
+    .user-container button.login {
+      background-color: #4caf50;
+    }
+
+    .user-container button.login:hover {
+      background-color: #3a8b3a;
+    }
+
+    .user-container .button-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 25px;
+    }
+
+    .user-container p {
+      margin-top: 15px;
+      text-align: center;
+      color: #d32f2f;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-white shadow-sm px-4 py-3">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold text-danger fs-4" href="#">
+      <span class="text-dark">Vraj</span>Bus
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="ms-auto d-flex align-items-center gap-4">
+        <a class="nav-link text-dark fw-semibold" href="#"  routerLink="/">Home</a>
+        <a class="nav-link text-dark fw-semibold" href="#"  routerLink="/blog">Blog</a>
+        <a class="nav-link text-dark fw-semibold" href="#" routerLink="/help">Help center</a>
+        <a class="nav-link text-dark fw-semibold" href="#" routerLink="/login">My bookings</a>
+        <button class="btn btn-danger btn-sm rounded-pill px-3" routerLink="/user" style="margin-left: 0px;">
+          User Account        </button>
+        <button class="btn btn-success btn-sm rounded-pill px-3" routerLink="/adminview">
+          Admin Account
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+  <div class="user-container">
+    <h2>User Registration</h2>
+    <form (ngSubmit)="registerUser()">
+      <label>Name:</label>
+      <input type="text" [(ngModel)]="user.name" name="name" required>
+
+      <label>Email:</label>
+      <input type="email" [(ngModel)]="user.email" name="email" required>
+
+      <label>Password:</label>
+      <input type="password" [(ngModel)]="user.password" name="password" required>
+
+      <div class="button-group">
+        <button class="register" type="submit">Register</button>
+        <button class="login" type="button" routerLink="/login">Login</button>
+      </div>
+    </form>
+    <p style="color: #aaf7ac;">{{ message }}</p>
+  </div>
+
+  <script src="path-to-bootstrap.js"></script>
+</body>
+</html>

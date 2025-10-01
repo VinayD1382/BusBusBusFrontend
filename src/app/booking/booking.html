@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg bg-white shadow-sm px-4 py-3">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold text-danger fs-4" href="#">
+      <span class="text-dark">Vraj</span>Bus
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="ms-auto d-flex align-items-center gap-4">
+        <a class="nav-link text-dark fw-semibold" href="#"  routerLink="/">Home</a>
+        <a class="nav-link text-dark fw-semibold" href="#"  routerLink="/blog">Blog</a>
+        <a class="nav-link text-dark fw-semibold" href="#" routerLink="/help">Help center</a>
+        <a class="nav-link text-dark fw-semibold" href="#" routerLink="/login">My bookings</a>
+        <button class="btn btn-danger btn-sm rounded-pill px-3" routerLink="/user" style="margin-left: 0px;">
+          User Account        </button>
+        <button class="btn btn-success btn-sm rounded-pill px-3" routerLink="/adminview">
+          Admin Account
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <h2>Book a Ticket</h2>
+  <div *ngIf="bus">
+    <p><strong>{{ bus.busName }}</strong></p>
+    <p>From: {{ bus.fromLocation }} | To: {{ bus.toLocation }}</p>
+    <p>Departure Time: {{ bus.departureTime }} PM</p>
+    <input [(ngModel)]="booking.customerName" name="customerName" placeholder="Customer Name" required />
+    <input [(ngModel)]="booking.email" name="email" placeholder="Email" type="email" required />
+    <input [(ngModel)]="booking.travelDate" name="travelDate" type="date" required />
+    <input [(ngModel)]="booking.seatNumber" name="seatNumber" placeholder="Selected Seats" readonly />
+    <h3>Right Seats</h3>
+    <div class="deck">
+      <div
+        *ngFor="let seat of lowerDeck"
+        class="seat"
+        [class.booked]="seat.booked"
+        [class.selected]="isSelected(seat)"
+        (click)="toggleSeat(seat)"
+      >
+        {{ seat.booked ? 'X' : seat.number }}
+        <small>₹{{ seat.price }}</small>
+      </div>
+    </div>
+
+    <h3>Left Seats</h3>
+    <div class="deck">
+      <div
+        *ngFor="let seat of upperDeck"
+        class="seat"
+        [class.booked]="seat.booked"
+        [class.selected]="isSelected(seat)"
+        (click)="toggleSeat(seat)"
+      >
+        {{ seat.booked ? 'X' : seat.number }}
+        <small>₹{{ seat.price }}</small>
+      </div>
+    </div>
+    <div class="booking-summary">
+      <p><strong>Total Seats:</strong> {{ selectedSeats.length }}</p>
+      <p><strong>Total Price:</strong> ₹{{ totalPrice }}</p>
+    </div>
+    <button (click)="bookTicket()">Cash On Booking</button>
+   <!-- <button style="margin-left: 50px;">Online Payment</button>-->
+
+  </div>
+  <div *ngIf="!bus">
+    <p>Loading bus details...</p>
+  </div>
+</div>
